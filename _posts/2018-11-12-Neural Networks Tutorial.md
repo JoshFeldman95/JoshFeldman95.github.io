@@ -114,7 +114,7 @@ print('this is labelled as a {}'.format(y_train[0]))
 
 
 
-![png](/assets/output_25_1.png)
+![png](/images/output_25_1.png)
 
 
 We need to preprocess our data a bit.

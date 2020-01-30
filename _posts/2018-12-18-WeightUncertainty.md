@@ -40,7 +40,7 @@ plt.show()
 ```
 
 
-![png](/assets/output_4_0.png)
+![png](/images/output_4_0.png)
 
 
 Let's see what happens when we fit a standard multilayer perception with 2 layers and 8 hidden units each. Don't worry too much about the code here - this is just to illustrate the behaviour of a typical neural network.
@@ -106,7 +106,7 @@ plt.show()
 
 
 
-![png](/assets/output_8_1.png)
+![png](/images/output_8_1.png)
 
 
 A perfect fit! But that is not necessarily a good thing. For instance, we are fitting an essentially straight line between $x = -1$ and $x = 1$. The curved nature of the data suggests that this might not be correct. We are overfitting to the 6 data points. More worrying, look what happens when we extend our predictions beyond the range of our data.
@@ -125,7 +125,7 @@ plt.show()
 
 
 
-![png](/assets/output_10_1.png)
+![png](/images/output_10_1.png)
 
 
 The neural network predicts -13 for $x = 100$, but there isn't a data point in sight. We'd ideally want the uncertainty of our neural network to increase as it makes predictions further from the observed data.
@@ -175,7 +175,7 @@ Specifically, let's approximate each weight $w_i$ with a normal distribution wit
 
 source: https://gluon.mxnet.io/chapter18_variational-methods-and-uncertainty/bayes-by-backprop.html?fbclid=IwAR1Dwk4GaK64_EARPwUG5vmZR8lFYbekDN2k_eKvYviAxGcKAWWtBFYR1yA
 
-We can't just pick any $\mu$'s and $\sigma$'s - we need the distribution $q(w \vert \theta)$ to be "close" to our ultimate goal  $P(w \vert \mathcal{D})$. We can formalize this notion of "closeness" with the Kullback-Leibler (KL) divergence, which measures [something like](/assets/https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained) a distance between two distributions. **Our goal, therefore, will be to minimize the KL divergence between $q(w \vert \theta)$ and $P(w \vert \mathcal{D})$.** Written out in math, we are looking for $\theta^*$ such that,
+We can't just pick any $\mu$'s and $\sigma$'s - we need the distribution $q(w \vert \theta)$ to be "close" to our ultimate goal  $P(w \vert \mathcal{D})$. We can formalize this notion of "closeness" with the Kullback-Leibler (KL) divergence, which measures [something like](/images/https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained) a distance between two distributions. **Our goal, therefore, will be to minimize the KL divergence between $q(w \vert \theta)$ and $P(w \vert \mathcal{D})$.** Written out in math, we are looking for $\theta^*$ such that,
 
 $$
 \theta^* = \underset{\theta}{\mathrm{argmin}} \text{ KL}\left[q(w \vert \theta) \vert \vert P(w \vert \mathcal{D})\right]
@@ -500,7 +500,7 @@ plt.show()
 ```
 
 
-![png](/assets/output_35_0.png)
+![png](/images/output_35_0.png)
 
 
 We can see that now there is a bit of uncertainty around the curve in the data. This can be compared to the frequentist neural network that confidently overfit a line exactly through the data points. Now let's zoom out.
@@ -522,7 +522,7 @@ plt.show()
 ```
 
 
-![png](/assets/output_37_0.png)
+![png](/images/output_37_0.png)
 
 
 This is very different from the frequentist neural network. With the bayesian neural network, in the regions where there is no data, the model predicts a wide probability distribution instead of a single point.
@@ -910,7 +910,7 @@ fig.tight_layout();
 
 
 
-![png](/assets/output_60_1.png)
+![png](/images/output_60_1.png)
 
 
 We can also do the same thing for our random noise inputs that we used to calculate entropy:
@@ -940,7 +940,7 @@ fig.tight_layout()
 ```
 
 
-![png](/assets/output_62_0.png)
+![png](/images/output_62_0.png)
 
 
 As we can see, the BNN outputs show much more uncertainty for OOD inputs than the deterministic MLP. In a perfect scenario, an idealized BNN would output nearly uniform probabilities for each of the above images. Our approximation $q$ of the true posterior is limited, however, by the expressiveness of the variational family, the choice of prior, and the difficulty of optimization in high-dimensional spaces. However, BbB sees considerable improvement over the MLP in predictive uncertainty measurements, which indicates that it serves as a much better approximation of the true posterior than a simple MLE estimator (i.e., a standard neural network) could achieve.
