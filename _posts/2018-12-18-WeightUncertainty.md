@@ -1,11 +1,9 @@
 ---
 layout: post
-title:  "Weight Uncertainty"
+title:  "Weight Uncertainty in Neural Networks Tutorial"
 date:   2018-12-18 12:00:00 -0000
 categories: ML
 ---
-
-# Weight Uncertainty in Neural Networks Tutorial
 
 Bayes by Backprop is an algorithm for training Bayesian neural networks (what is a Bayesian neural network, you ask? Read more to find out), which was developed in the paper “Weight Uncertainty in Neural Networks” by Blundell et al. We will be using pytorch for this tutorial along with several standard python packages. I put this tutorial together with Joe Davison, Lucie Gillet, Baptiste Lemaire, and Robbert Struyven.
 

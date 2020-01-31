@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Neural Net Tutorial"
+title:  "How to Train a Neural Network in 5 Minutes"
 date:   2018-11-12 12:00:00 -0000
 categories: ML
 ---
@@ -8,7 +8,7 @@ This tutorial will take you from never using python to training your first neura
 
 # To do before the tutorial: Install Python, Jupyter Notebooks, and Keras
 
-The first think you need to do is install [Anaconda](https://www.anaconda.com/download/). You should choose the latest Python 3 version. Anaconda is a collection of things that make it easy to do data science. Here is what is included in the distribution:
+The first thing you need to do is install [Anaconda](https://www.anaconda.com/download/). You should choose the latest Python 3 version. Anaconda is a collection of things that make it easy to do data science. Here is what is included in the distribution:
 1. **Python**  is an increasingly [popular](https://www.economist.com/science-and-technology/2018/07/19/python-has-brought-computer-programming-to-a-vast-new-audience) programming language for data science.
 2. The **Anaconda Navigator**, which lets you launch applications (called integrated development environments or IDEs)  like Jupyter Notebook that help you write Python code.
 3. A bunch of useful **packages** (which are basically code that someone else wrote and has "packaged" nicely for you to use) that let you process data quickly and visualize results easily. Some of these packages are downloaded automatically and others you need to download individually yourself.

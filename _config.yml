@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Reverie
+name: Josh Feldman's Blog
 
 # Name of the author
-author: Amit Merchant
+author: Josh Feldman
 
 # Short bio or description (displayed in the header)
-description: An elegant Jekyll theme
+description: ""
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/JoshF.png
@@ -26,11 +26,11 @@ footer-links:
   flickr:
   github: JoshFeldman95
   instagram:
-  linkedin: 
+  linkedin:
   pinterest:
   rss: rss
   twitter: JoshFeldman14
-  stackoverflow: 
+  stackoverflow:
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
   playconsole:
@@ -38,7 +38,7 @@ footer-links:
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-disqus: 
+disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 # google_analytics: UA-43339302-11
@@ -96,4 +96,3 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
-

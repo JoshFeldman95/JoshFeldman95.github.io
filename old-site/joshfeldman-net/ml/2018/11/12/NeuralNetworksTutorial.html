@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Intro to Neural Networks</title>
+  <meta name="description" content="This tutorial will take you from never using python to training your first neural network!">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="joshfeldman.net/ml/2018/11/12/NeuralNetworksTutorial.html">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Josh Feldman Blog" href="joshfeldman.net/feed.xml">
+
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="JoshFeldman14">
+  <meta name="twitter:title" content="Intro to Neural Networks">
+  <meta name="twitter:description" content="This tutorial will take you from never using python to training your first neural network!">
+  
+    <meta name="twitter:creator" content="JoshFeldman14">
+  
+  
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/">Josh Feldman Blog</a>
+
+    
+      <nav class="site-nav">
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/about/">About Me</a>
+            
+          
+            
+            
+            <a class="page-link" href="/archives/">Blog Archive</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/categories/politics/">politics</a>
+            
+          
+            
+            
+            <a class="page-link" href="/categories/ml/">ml</a>
+            
+          
+            
+            
+            <a class="page-link" href="/categories/law/">law</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Intro to Neural Networks</h1>
+    
+    <p class="post-meta"><time datetime="2018-11-12T06:29:52+00:00" itemprop="datePublished">Nov 12, 2018</time> •
+  
+    
+    
+      
+    
+      
+        <a href="/categories/ml/">ml</a>
+      
+    
+      
+    
+  
+
+
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This tutorial will take you from never using python to training your first neural network!</p>
+
+<h1 id="to-do-before-the-tutorial-install-anaconda">To do before the tutorial: Install Anaconda</h1>
+
+<p>The first think you need to do is install <a href="https://www.anaconda.com/download/">Anaconda</a>. You should choose the latest Python 3 version. Anaconda is a collection of things that make it easy to do data science. Here is what is included in the distribution:</p>
+<ol>
+  <li><strong>Python</strong>  is an increasingly <a href="https://www.economist.com/science-and-technology/2018/07/19/python-has-brought-computer-programming-to-a-vast-new-audience">popular</a> programming language for data science.</li>
+  <li>The <strong>Anaconda Navigator</strong>, which lets you launch applications (called integrated development environments or IDEs)  like Jupyter Notebook that help you write Python code.</li>
+  <li>A bunch of useful <strong>packages</strong> (which are basically code that someone else wrote and has “packaged” nicely for you to use) that let you process data quickly and visualize results easily. Some of these packages are downloaded automatically and others you need to download individually yourself.</li>
+  <li>The <strong>conda</strong> package management system that will organize and help you download all of the packages you need.</li>
+</ol>
+
+<p>You can now create a new folder anywhere on your computer to store the files we’re going to work on.</p>
+
+<p>Now you should try to open the Anaconda-Navigator application. From there, click on “Launch” underneath the Notebook rectangle. A new tab should open in internet browser that looks like this</p>
+
+<p><img src="/assets/img/JupyterNotebookLanding.png" alt="jupyter notebook" /></p>
+
+<p>Now navigate into the folder you just created and click on <code class="highlighter-rouge">New</code> in the top right hand corner and then click on <code class="highlighter-rouge">Python 3</code>. Congratulations! You just created your first Jupyter notebook. Feel free to play around with the notebook and get familiar with Python.</p>
+
+<ul>
+  <li><a href="https://www.codecademy.com/learn/learn-python">Here</a> is a python tutorial you can work through if you want.</li>
+  <li><a href="https://www.dataquest.io/blog/jupyter-notebook-tutorial/">Here</a> is a jupyter notebook tutorial, that covers what we’ve just done and quite a bit more.</li>
+</ul>
+
+<p>A useful shortcut in Jupyter notebook is that <code class="highlighter-rouge">shift + enter</code> runs the current cell.</p>
+
+<p>Installing everything you need is always the hardest part of any project so don’t get discouraged if you run into trouble. When in doubt, google! If that doesn’t work, email me at joshua_feldman[at]g[dot]harvard[dot]edu and I’ll try to help.</p>
+
+<p>Great work! See you at the tutorial.</p>
+
+<h1 id="who-cares-about-deep-learning">Who Cares About Deep Learning</h1>
+
+<p>With all the hype surrounding deep learning, what neural networks can actually do sometimes gets lost in the noise.</p>
+
+<p>Before we get started, as some inspiration, here are some of the most technically interesting things I’ve seen neural networks do. We won’t be doing anything like this in the tutorial, but we will be covering the building blocks of these more advanced applications:</p>
+
+<p>This was written by a neural network after being trained on Leo Tolstoy’s War and Peace. The crazy thing is that the algorithm was never told that words are seperated by spaces and learned, letter by letter, to write. (example from <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy Blog</a>)</p>
+
+<blockquote>
+  <p>First, it’s fun to look at how the sampled text evolves while the model trains. For example, I trained an LSTM of Leo Tolstoy’s War and Peace and then generated samples every 100 iterations of training. At iteration 100 the model samples random jumbles:</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">tyntd-iafhatawiaoihrdemot  lytdws  e ,tfti, astai f ogoh eoase rrranbyne 'nhthnee e
+plia tklrgd t o idoe ns,smtt   h ne etie h,hregtrs nigtike,aoaenns lng</code></p>
+</blockquote>
+
+<blockquote>
+  <p>However, notice that at least it is starting to get an idea about words separated by spaces. Except sometimes it inserts two spaces. It also doesn’t know that comma is almost always followed by a space. At 300 iterations we see that the model starts to get an idea about quotes and periods:</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">"Tmont thithey" fomesscerliund
+Keushey. Thom here
+sheulke, anmerenith ol sivh I lalterthend Bleipile shuwy fil on aseterlome
+coaniogennc Phe lism thond hon at. MeiDimorotion in ther thize."</code></p>
+</blockquote>
+
+<blockquote>
+  <p>The words are now also separated with spaces and the model starts to get the idea about periods at the end of a sentence. At iteration 500:</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">we counter. He stutn co des. His stanted out one ofler that concossions and was
+to gearang reay Jotrets and with fre colt otf paitt thin wall. Which das stimn</code></p>
+</blockquote>
+
+<blockquote>
+  <p>the model has now learned to spell the shortest and most common words such as “we”, “He”, “His”, “Which”, “and”, etc. At iteration 700 we’re starting to see more and more English-like text emerge:</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Aftair fall unsuch that the hall for Prince Velzonski's that me of
+her hearly, and behs to so arwage fiving were to it beloge, pavu say falling misfort
+how, and Gogition is so overelical and ofter.</code></p>
+</blockquote>
+
+<blockquote>
+  <p>At iteration 1200 we’re now seeing use of quotations and question/exclamation marks. Longer words have now been learned as well:</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">"Kite vouch!" he repeated by her
+door. "But I would be done and quarts, feeling, then, son is people...."</code>
+Until at last we start to get properly spelled words, quotations, names, and so on by about iteration 2000:</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">"Why do what that day," replied Natasha, and wishing to himself the fact the
+princess, Princess Mary was easier, fed in had oftened him.
+Pierre aking his soul came to the packs and drove up his father-in-law women.</code></p>
+</blockquote>
+
+<blockquote>
+  <p>The picture that emerges is that the model first discovers the general word-space structure and then rapidly starts to learn the words; First starting with the short words and then eventually the longer ones. Topics and themes that span multiple words (and in general longer-term dependencies) start to emerge only much later.</p>
+</blockquote>
+
+<p>In addition to writing Tolstoy impressions, deep learning is making it easier to generate all sorts of <a href="https://www.youtube.com/watch?v=cQ54GDm1eL0">media</a>.</p>
+
+<p>There are many applications of neural networks that are outside of the classification paradigm like <a href="https://medium.com/@karpathy/software-2-0-a64152b37c35">software 2.0</a></p>
+
+<p><a href="http://krisrs1128.github.io/personal-site/links/links.html">Kris Sankaran</a> has put together an excellent <a href="https://docs.google.com/document/d/17zkL8ql4JcM8knAEJfRtmgtUCiv-7PyYaZlMTkkvkYM/edit">repository</a> of humanitarian and socially minded applications of machine learning. Most do not involve deep learning, but some do.</p>
+
+<h1 id="but-what-is-a-neural-network">But What is a Neural Network?</h1>
+
+<p>I would explain, but this video does it better than I ever could. 3Blue1Brown puts out the best videos on the internet. It’s a 4 part series, but we’re only going to cover the first one.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aircAruvnKk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h1 id="install-tensorflow">Install Tensorflow</h1>
+
+<p>Follow the instruction <a href="https://www.tensorflow.org/install/pip">here</a>. This will definitely be the hardest part.</p>
+
+<p>If you can’t install tensorflow, I implemented this tutorial in a Google Colab Notebook, which has everything installed for you. It also lets you use fancy hardware like GPUs and TPUs. The tutorial is available <a href="https://colab.research.google.com/drive/1Jnz8NytUSuqyGmd8AsH_OfQ_f-Qky1Q9">here</a>. More info on Colab Notebooks are available <a href="https://colab.research.google.com/notebooks/welcome.ipynb">here</a>.</p>
+
+<h1 id="time-to-code">Time to code!</h1>
+
+<p>We’re going to be working from this <a href="https://keras.io/">introduction</a> to Keras. Keras is a package that let’s you build neural networks super easily.</p>
+
+<p>You should create a new notebook, just like we did above. For the code below, just copy it into a seperate cell in the notebook and run it.</p>
+
+<p>Our goal will be to classify the handwritten digits we saw in the video. This is actually a famous machine learning dataset called MNIST. We can download it directly from keras.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Using TensorFlow backend.
+</code></pre></div></div>
+
+<p>What we just downloaded are as follows:</p>
+
+<p><code class="highlighter-rouge">x_train</code> - 60000 images represented by 28x28 pixels. We will use this data to train our network.</p>
+
+<p><code class="highlighter-rouge">y_train</code> - 60000 labels represented as a single number between 0 and 9. We will use this data to train our network.</p>
+
+<p><code class="highlighter-rouge">x_test</code> - 10000 images represented by 28x28 pixels. We will use this data to evaluate our network.</p>
+
+<p><code class="highlighter-rouge">y_test</code> - 10000 labels represented as a single number between 0 and 9. We will use this data to evaluate our network.</p>
+
+<p>The reason why we have seperate training and test data is because it would give us an unfair advantage if we only evaluated our neural network on examples we used for training. It would be like telling someone that 2 + 2 = 4 and then asking them to tell us what 2 + 2 equals. If they said 4, would that mean they understood addition or would they just be memorizing what we told them?</p>
+
+<p>We can take a look at one of our images just as a sanity check.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># a plotting library
+</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s">'gray'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'this is labelled as a {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>this is labelled as a 5
+</code></pre></div></div>
+
+<p>We need to preprocess our data a bit.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+<span class="c1"># get number of pixels
+</span><span class="n">num_pixels</span> <span class="o">=</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span>
+
+<span class="c1"># change training images from a 28x28 grid to a row or 784 numbers
+</span><span class="n">x_train_reshape</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+
+<span class="c1"># do the same thing for the test images
+</span><span class="n">x_test_reshape</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+
+<span class="c1">#scale the image from a 0-225 range to a 0-1 range
+</span><span class="n">x_train_scaled</span> <span class="o">=</span> <span class="n">x_train_reshape</span><span class="o">/</span><span class="mi">225</span>
+
+<span class="c1">#do the same thing for the test images
+</span><span class="n">x_test_scaled</span> <span class="o">=</span> <span class="n">x_test_reshape</span><span class="o">/</span><span class="mi">225</span>
+
+<span class="c1"># we need to change our labels to a "one hot" encoding
+</span><span class="n">y_train_one_hot</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1">#do the same thing for the test labels
+</span><span class="n">y_test_one_hot</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The first thing we’re going to do is create a <code class="highlighter-rouge">model</code>. A model is the basic object we’re going to work with.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">Sequential</code> command just creates an empty neural network. It doesn’t contain any layers.</p>
+
+<p>We are now going to recreate the neural network from the 3blue1brown video. To do so, we add two dense layers. There are many different types of layers that can go in a neural network, but the simplest is the one we saw in the video where every neurom in the previous layer is connected to every neuron in the current layer. We go from 784 input neurons to 16 hidden neurons to 10 output neurons corresponding to the probability of the image being one of the 10 digits.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">))</span> <span class="c1"># add the first layer of the network
+</span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>We can see our full model with the <code class="highlighter-rouge">summary</code> command.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 16)                12560     
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                170       
+=================================================================
+Total params: 12,730
+Trainable params: 12,730
+Non-trainable params: 0
+_________________________________________________________________
+</code></pre></div></div>
+
+<p>We didn’t go into exactly what this next bit of code is doing, but basically it specifies how our neural network is going to learn. We can go into this more later if there is time. You can also watch more of the 3blue1brown videos and it will give you a better idea.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>We are now ready to train the model! We call the <code class="highlighter-rouge">model.fit</code> command and pass the following parameters.</p>
+
+<p><code class="highlighter-rouge">x_train</code> - our training images</p>
+
+<p><code class="highlighter-rouge">y_train</code> - our labels</p>
+
+<p><code class="highlighter-rouge">epochs</code> - how many times our neural network is going to see our full dataset</p>
+
+<p><code class="highlighter-rouge">batch_size</code> - instead of training our network on all our data at once, we’re going to only show it smaller “batches” of 32 images at time.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_scaled</span><span class="p">,</span> <span class="n">y_train_one_hot</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Epoch 1/20
+60000/60000 [==============================] - 3s 45us/step - loss: 1.7241 - acc: 0.6087: 1s - loss:
+Epoch 2/20
+60000/60000 [==============================] - 2s 31us/step - loss: 1.0161 - acc: 0.8034
+Epoch 3/20
+60000/60000 [==============================] - 2s 29us/step - loss: 0.7378 - acc: 0.8486
+Epoch 4/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.5993 - acc: 0.8702: 1s -
+Epoch 5/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.5179 - acc: 0.8815
+Epoch 6/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.4657 - acc: 0.8880
+Epoch 7/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.4298 - acc: 0.8935
+Epoch 8/20
+60000/60000 [==============================] - 2s 32us/step - loss: 0.4035 - acc: 0.8975
+Epoch 9/20
+60000/60000 [==============================] - 2s 32us/step - loss: 0.3832 - acc: 0.9008
+Epoch 10/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.3670 - acc: 0.9032
+Epoch 11/20
+60000/60000 [==============================] - 2s 29us/step - loss: 0.3538 - acc: 0.9059
+Epoch 12/20
+60000/60000 [==============================] - 2s 32us/step - loss: 0.3426 - acc: 0.9079
+Epoch 13/20
+60000/60000 [==============================] - 2s 29us/step - loss: 0.3330 - acc: 0.9098
+Epoch 14/20
+60000/60000 [==============================] - 2s 28us/step - loss: 0.3247 - acc: 0.9113
+Epoch 15/20
+60000/60000 [==============================] - 2s 29us/step - loss: 0.3173 - acc: 0.9128
+Epoch 16/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.3106 - acc: 0.9143: 1s
+Epoch 17/20
+60000/60000 [==============================] - 2s 34us/step - loss: 0.3047 - acc: 0.9154: 1s - loss:
+Epoch 18/20
+60000/60000 [==============================] - 2s 33us/step - loss: 0.2993 - acc: 0.9170
+Epoch 19/20
+60000/60000 [==============================] - 2s 31us/step - loss: 0.2945 - acc: 0.9177
+Epoch 20/20
+60000/60000 [==============================] - 2s 30us/step - loss: 0.2900 - acc: 0.9191
+
+
+
+
+
+&lt;keras.callbacks.History at 0x146e52fd0&gt;
+</code></pre></div></div>
+
+<p>To evaluate the model, we call <code class="highlighter-rouge">model.evaluate</code> on our test data. The second number in the output is our accuracy.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test_scaled</span><span class="p">,</span> <span class="n">y_test_one_hot</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10000/10000 [==============================] - 0s 17us/step
+
+
+
+
+
+[0.28416043276786807, 0.9213]
+</code></pre></div></div>
+
+<p>As a sanity check, we can make predictions on our test data and match them up with our labels. We need to convert the probabilities returned by our neural network back to labels.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classes</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test_scaled</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_test_one_hot</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sum</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9213
+</code></pre></div></div>
+
+<p>We got 92% accuracy! More importantly, you just trained your first neural network!</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy;  - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="joshfeldman.net/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
