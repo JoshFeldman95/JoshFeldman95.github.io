@@ -2,7 +2,6 @@
 layout: post
 title:  "How to Train a Neural Network in 5 Minutes"
 date:   2018-11-12 12:00:00 -0000
-categories: ML
 ---
 This tutorial will take you from never using python to training your first neural network with some theory along the way!
 
