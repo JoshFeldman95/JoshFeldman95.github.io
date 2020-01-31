@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "BlueDot in Wired!"
-date:   2018-11-12 12:00:00 -0000
+date:   2018-01-31 12:00:00 -0000
 ---
 
 Wired just [wrote an article](https://www.wired.com/story/ai-epidemiologist-wuhan-public-health-warnings/) on the work I helped with when I was a data scientist at BlueDot. We built a system that ingests news articles from around the world and uses the information to create a database of global infectious disease outbreaks. The product identified the recent coronavirus outbreak a week before the CDC and 10 days before the World Health Organization.
