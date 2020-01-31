@@ -18,7 +18,7 @@ You can now create a new folder anywhere on your computer to store the files we'
 
 Now you should try to open the Anaconda-Navigator application. From there, click on "Launch" underneath the Notebook rectangle. A new tab should open in internet browser that looks like this
 
-![jupyter notebook](JupyterNotebookLanding.png)
+![jupyter notebook](/images/JupyterNotebookLanding.png)
 
 Now navigate into the folder you just created and click on `New` in the top right hand corner and then click on `Python 3`. Congratulations! You just created your first Jupyter notebook. Feel free to play around with the notebook and get familiar with Python.
 

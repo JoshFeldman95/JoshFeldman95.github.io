@@ -9,3 +9,5 @@ I was only tangentially related to this project doing some NLP work that didn't 
 In this paper, the team reviewed 36 different AI principles and found "growing consensus around eight key thematic trends: privacy, accountability, safety and security, transparency and explainability, fairness and non-discrimination, human control of technology, professional responsibility, and promotion of human values".
 
 Check out the [paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3518482) and [data visualization](http://wilkins.law.harvard.edu/misc/PrincipledAI_FinalGraphic.jpg).
+
+![principles](http://wilkins.law.harvard.edu/misc/PrincipledAI_FinalGraphic.jpg)
