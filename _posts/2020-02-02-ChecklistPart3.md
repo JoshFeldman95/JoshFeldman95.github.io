@@ -41,15 +41,15 @@ To create our checklist, we use the[deon](http://deon.drivendata.org/) checklist
 1. **Missing perspectives:** We have a system to collaborate and build trust with community members, particularly historically marginalized community members, on an ongoing basis.
 2. **Diverse Team:** Our team is representative of the community we&#39;re collaborating with and includes historically marginalized voices.
 3. **Community Collaboration:** We collaborated with community members on an ongoing basis to:
-  1. see what is already working and whether we can help amplify these solutions,
-  2. set the objectives for the project,
-  3. identify sources of bias that might be introduced during data collection/survey design,
-  4. define what successful/beneficial/just outcomes look like and what unsuccessful/harmful/unjust outcomes look like,
-  5. select the inputs to our model and define our metrics,
-  6. understand what types of explanations will be needed,
-  7. identify and prevent unintended uses and abuse of the model,
-  8. develop a system to identify if our model inflicts harm, and what should be done if this occurs.
-4. **Fair Compensation:** Those who created our data, infrastructure, and hardware were fairly compensated.
+    1. see what is already working and whether we can help amplify these solutions,
+    2. set the objectives for the project,
+    3. identify sources of bias that might be introduced during data collection/survey design,
+    4. define what successful/beneficial/just outcomes look like and what unsuccessful/harmful/unjust outcomes look like,
+    5. select the inputs to our model and define our metrics,
+    6. understand what types of explanations will be needed,
+    7. identify and prevent unintended uses and abuse of the model,
+    8. develop a system to identify if our model inflicts harm, and what should be done if this occurs.
+    4. **Fair Compensation:** Those who created our data, infrastructure, and hardware were fairly compensated.
 5. **Privacy Best Practices** : We proactively considered the privacy of individuals in our training data and of our users (i.e. minimize exposure of personally identifiable information, only collect necessary information, encryption at rest and in transit, data deletion plan, etc.)
 6. **Consent:** If we are using data on human subjects, they have provided (a) Freely given, (b) Reversible, (c) Informed, (d) Enthusiastic, and (e) Specific consent.
 7. **Met Standards Set by Community:** We have assessed with community members whether our system meets the criteria they defined, disaggregated across intersecting identities (i.e. we meet the criteria not just for Black people and women, but also for Black women)
